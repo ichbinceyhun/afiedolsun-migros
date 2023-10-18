@@ -2,7 +2,7 @@
 
 
 a = Analysis(
-    ['main.py'],
+    ['afiedolsun.py'],
     pathex=[],
     binaries=[],
     datas=[],
@@ -21,7 +21,7 @@ exe = EXE(
     a.binaries,
     a.datas,
     [],
-    name='main',
+    name='afiedolsun',
     debug=False,
     bootloader_ignore_signals=False,
     strip=False,
@@ -31,7 +31,7 @@ exe = EXE(
     console=True,
     disable_windowed_traceback=False,
     argv_emulation=False,
-    target_arch='universal2',
+    target_arch=None,
     codesign_identity=None,
     entitlements_file=None,
 )

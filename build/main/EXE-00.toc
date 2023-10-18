@@ -357,7 +357,7 @@
  [],
  False,
  False,
- 1697647155,
+ 1697648802,
  [('run',
    '/Users/ceyhunmrd/PycharmProjects/afiedolsun-migros/venv/lib/python3.9/site-packages/PyInstaller/bootloader/Darwin-64bit/run',
    'EXECUTABLE')],

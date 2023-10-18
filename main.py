@@ -4,6 +4,7 @@ import json
 import requests
 import lxml.html
 import pyperclip
+import base64
 
 
 afiedolsun = """
@@ -25,15 +26,22 @@ print(kopyalanan_metin)
 
 
 cookies = None
+token = None
+decoded = None
 link = None
 def token_gir():
+    global token
+    global decoded
     global link
-    if "textdoc" in kopyalanan_metin:
-        link = kopyalanan_metin
+
+    if "=" in kopyalanan_metin:
+        decoded = str(base64.standard_b64decode(kopyalanan_metin).decode("utf-8"))
+        link = decoded
         print("token bulundu")
     else:
         print("panoda bulunamadı")
-        link = input("Token giriniz: ")
+        token = input("Token giriniz: ")
+        link = str(base64.standard_b64decode(token).decode("utf-8"))
 
 
 

@@ -1,9 +1,7 @@
 # burda biseyler karalıyorum
-import requests
-import lxml.html
-import json
-link = "https://textdoc.co/wfvnPNrVdsqIl6ig"
-response = requests.get(link)
-tree = lxml.html.fromstring(response.text)
-element = tree.xpath('//*[@id="txt-doc"]/text()')[0]
-cikti = json.loads(element)
+import base64
+token = input("token giriniz:")
+
+
+decoded = str(base64.standard_b64decode(token).decode("utf-8"))
+print(decoded)
