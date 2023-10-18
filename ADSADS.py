@@ -1,3 +1,4 @@
+# burda biseyler karalıyorum
 import requests
 import lxml.html
 import json
