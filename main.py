@@ -1,9 +1,30 @@
+import subprocess
 import time
-from selenium import webdriver
+try:
+    from selenium import webdriver
+
+except ImportError:
+    subprocess.check_call(['pip', 'install', 'selenium'])
 import json
-import requests
-import lxml.html
-import pyperclip
+try:
+    import requests
+
+except ImportError:
+    subprocess.check_call(['pip', 'install', 'requests'])
+
+try:
+    import lxml.html
+
+except ImportError:
+    subprocess.check_call(['pip', 'install', 'lxml'])
+try:
+    import pyperclip
+
+except ImportError:
+    subprocess.check_call(['pip', 'install', 'pyperclip'])
+import base64
+time.sleep(5)
+
 
 
 afiedolsun = """
@@ -25,15 +46,22 @@ print(kopyalanan_metin)
 
 
 cookies = None
+token = None
+decoded = None
 link = None
 def token_gir():
+    global token
+    global decoded
     global link
-    if "textdoc" in kopyalanan_metin:
-        link = kopyalanan_metin
+
+    if "=" in kopyalanan_metin:
+        decoded = str(base64.standard_b64decode(kopyalanan_metin).decode("utf-8"))
+        link = decoded
         print("token bulundu")
     else:
         print("panoda bulunamadı")
-        link = input("Token giriniz: ")
+        token = input("Token giriniz: ")
+        link = str(base64.standard_b64decode(token).decode("utf-8"))
 
 
 
