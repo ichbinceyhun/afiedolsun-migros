@@ -1,0 +1,40 @@
+[
+    {
+        "domain": "www.migros.com.tr",
+        "hostOnly": true,
+        "httpOnly": true,
+        "name": "SESSION",
+        "path": "/",
+        "sameSite": null,
+        "secure": true,
+        "session": true,
+        "storeId": null,
+        "value": "YzExZTQ1NjctMWZkNi00MWYzLWFlMjgtYzJhOWVhN2M4ZTFm"
+    },
+    {
+        "domain": "www.migros.com.tr",
+        "expirationDate": 1711653374.549852,
+        "hostOnly": true,
+        "httpOnly": true,
+        "name": "remember-me",
+        "path": "/",
+        "sameSite": null,
+        "secure": true,
+        "session": false,
+        "storeId": null,
+        "value": "R0JmYUFKc1VaJTJCVnp1dTk0MTNqVVVBJTNEJTNEOlVaR0VJRmtuJTJCaEQ3M2xReFhkRDhqQSUzRCUzRA"
+    },
+    {
+        "domain": "www.migros.com.tr",
+        "expirationDate": 1713118928.408072,
+        "hostOnly": true,
+        "httpOnly": true,
+        "name": "VSTR_ID",
+        "path": "/",
+        "sameSite": null,
+        "secure": true,
+        "session": false,
+        "storeId": null,
+        "value": "5ca39b90-8f1c-43a3-9f29-f261e2acc80c"
+    }
+]
