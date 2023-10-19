@@ -20,12 +20,7 @@ try:
 except ImportError:
     print("Gerekli dosyalar yükleniyor. lxml")
     subprocess.check_call(['pip', 'install', 'lxml'])
-try:
-    import pyperclip
 
-except ImportError:
-    print("Gerekli dosyalar yükleniyor. pyperclip")
-    subprocess.check_call(['pip', 'install', 'pyperclip'])
 import base64
 time.sleep(5)
 
@@ -45,7 +40,6 @@ afiedolsun = """
 """
 print(afiedolsun)
 
-kopyalanan_metin = pyperclip.paste()
 
 
 cookies = None
