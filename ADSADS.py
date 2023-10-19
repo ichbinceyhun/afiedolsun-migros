@@ -1,7 +1,12 @@
 # burda biseyler karalıyorum
 import base64
-token = input("token giriniz:")
+import pyperclip
+link = str(input("linki giriniz:"))
 
 
-decoded = str(base64.standard_b64decode(token).decode("utf-8"))
-print(decoded)
+token = base64.standard_b64encode(bytes(f'{link}', 'utf-8'))
+utftoken = str(token, 'utf-8')
+print(utftoken)
+pyperclip.copy(utftoken)
+
+

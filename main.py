@@ -4,23 +4,27 @@ try:
     from selenium import webdriver
 
 except ImportError:
+    print("Gerekli dosyalar yükleniyor. selenium")
     subprocess.check_call(['pip', 'install', 'selenium'])
 import json
 try:
     import requests
 
 except ImportError:
+    print("Gerekli dosyalar yükleniyor. req")
     subprocess.check_call(['pip', 'install', 'requests'])
 
 try:
     import lxml.html
 
 except ImportError:
+    print("Gerekli dosyalar yükleniyor. lxml")
     subprocess.check_call(['pip', 'install', 'lxml'])
 try:
     import pyperclip
 
 except ImportError:
+    print("Gerekli dosyalar yükleniyor. pyperclip")
     subprocess.check_call(['pip', 'install', 'pyperclip'])
 import base64
 time.sleep(5)
@@ -42,7 +46,6 @@ afiedolsun = """
 print(afiedolsun)
 
 kopyalanan_metin = pyperclip.paste()
-print(kopyalanan_metin)
 
 
 cookies = None
@@ -53,15 +56,57 @@ def token_gir():
     global token
     global decoded
     global link
-
-    if "=" in kopyalanan_metin:
-        decoded = str(base64.standard_b64decode(kopyalanan_metin).decode("utf-8"))
-        link = decoded
-        print("token bulundu")
-    else:
-        print("panoda bulunamadı")
-        token = input("Token giriniz: ")
+    token = input("Token giriniz: ")
+    try:
         link = str(base64.standard_b64decode(token).decode("utf-8"))
+    except:
+        print("hatalı token girdiniz")
+        token_gir()
+    if "textdoc" in link:
+        print("TOKENİNİZ ALINDI, HESAP BİRAZDAN YÜKLENECEK")
+        pizza = """"
+
+        _....._
+    _.:`.--|--.`:._
+  .: .'\o  | o /'. '.
+ // '.  \ o|  /  o '.\
+//'._o'. \ |o/ o_.-'o\\
+|| o '-.'.\|/.-' o   ||
+||--o--o-->|                                  
+
+        """
+        pizza_dilimi = """// ""--.._
+||  (_)  _ "-._
+||    _ (_)    '-.
+||   (_)   __..-'
+ \\__..--"""""
+        burger = """⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣠⡤⠶⠶⠚⠛⠛⠻⠿⢷⣶⡶⢾⣿⢿⣿⣷⣶⣶⣤⣤⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣤⠶⠛⠉⠀⡀⠴⣏⡧⠐⠚⢛⡛⠓⠺⣿⣮⡿⠦⢤⡀⠀⠈⣭⠉⠛⠻⠷⣦⣄⡀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⣠⣶⠟⠉⣤⡄⠀⣠⡛⠃⢠⣦⡄⠀⠀⡛⠛⠀⠰⠿⠟⢧⡀⠀⠻⠦⠀⠀⠀⠶⠀⢠⣦⡙⢿⣶⡄⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⣠⡾⠋⠑⠀⠀⠉⠀⠐⠟⠁⢀⣤⡉⠀⠀⠸⢿⠂⠀⣶⡦⠀⠘⠇⠀⠀⠰⠆⠀⣠⣤⡀⠀⠉⠀⠀⠙⣿⣆⠀⠀⠀⠀⠀
+⠀⠀⠀⢀⣼⡟⠁⠀⠀⠰⠀⠀⠀⠀⠀⠀⠀⠉⢁⣤⡀⠀⣀⠀⠀⢀⣠⡀⠀⠀⢰⣶⠀⠀⠀⠈⠉⠀⠀⠀⠼⠏⠀⠈⠻⣦⠀⠀⠀⠀
+⠀⠀⢀⣿⠏⡀⠀⠀⠀⠀⠀⠀⠀⠘⠛⠀⠀⣀⡈⠉⠀⠀⠋⠁⠀⠈⠉⠁⠀⠀⠀⠁⠀⠰⠟⠀⠀⠀⠰⠆⠀⠀⠀⠄⠀⠘⢧⠀⠀⠀
+⠀⠀⣾⡟⢠⠇⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠁⠀⠀⠘⠛⠃⠀⠀⠀⢰⡆⠀⠀⠀⠀⠀⠀⠠⣤⠄⠀⢀⠀⠀⠀⠀⠀⠀⠈⣧⠀⠀
+⠀⠀⣿⣇⠈⣧⡟⣆⢘⢦⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠁⠀⠀⠀⠀⠀⠀⠈⠀⠀⠀⠀⠀⠀⠀⢹⡄⠀
+⠀⠀⠘⣿⣦⣌⣁⠈⠚⠷⢽⣮⣦⣄⠀⢀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣼⠃⠀
+⠀⢀⣤⠾⢋⠈⠉⠛⠳⠦⣤⣀⡉⠉⠉⠒⠛⠷⢶⡤⠤⠤⠤⠤⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣀⡀⠤⠴⠶⢾⣿⣅⠀⠀
+⣴⣿⠿⢿⣿⠃⡀⠀⠀⠀⣀⠈⠉⠛⠒⠲⣦⣤⡤⠤⠤⠤⠤⠤⠤⠤⠤⠴⠶⠖⠲⠶⣶⣒⠛⠛⠋⠉⠉⠀⠀⠀⠀⠀⢀⣀⣈⣻⣿⣦
+⠀⠀⠀⠚⠛⣻⡇⠀⣴⣏⣙⣷⠦⠶⠶⣟⠉⠀⠀⠀⠀⢠⡤⠤⣤⣀⠀⠀⠀⣤⢶⣄⣠⡭⠿⢶⣄⠀⢀⣤⠶⠶⢦⡤⠼⣿⡏⠉⠙⠻
+⠀⠀⠀⢠⣴⣿⣷⣶⣿⣤⣉⡙⠛⠒⠒⠛⠛⣿⡄⢀⣤⠾⠤⠤⠖⠛⢷⣤⣼⣿⠶⣭⣄⣀⣀⢀⣸⣾⣋⣀⣀⣤⡤⣶⣿⣿⣅⠀⠀⠀
+⠀⠀⠀⢿⣿⣿⣿⣿⣻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣦⣀⠀⠀⠀⠀⠀⠀⢀⣠⠴⢚⣽⣿⣿⣿⣿⣿⣿⡿⠻⠙⠋⠉⠘⣿⡄⠀⠀
+⠀⠀⠀⣸⣿⣿⣿⣿⣿⣟⣿⣿⣿⡟⢻⣏⣹⢻⣿⢻⣻⣿⣿⣦⠀⣀⣀⡴⠞⣋⣤⣶⡿⣿⠋⠳⣞⢁⡠⠁⠀⠀⠀⠀⠀⢀⣿⡇⠀⠀
+⠀⠀⠀⠘⣿⣿⣿⣿⣿⣿⣿⣿⣖⢻⣿⣿⣿⣿⣿⣻⣿⣿⣿⡿⣧⣭⣵⠖⠋⢩⣽⢁⣀⠻⠀⢤⣤⠿⠤⠖⣦⣷⣂⣠⣴⣾⣟⠃⠀⠀
+⠀⠀⠀⣾⡟⢿⣄⣈⣽⡿⠿⠟⠛⠿⣿⣿⣿⣿⣿⣿⣹⣯⣿⣤⣾⣚⣿⣲⣿⣚⣧⣤⣿⣾⣷⣾⣿⣾⣟⣋⡉⠉⠉⣿⠀⠙⣿⡄⠀⠀
+⠀⠀⠀⣿⡆⣆⠀⠀⠀⠀⠀⠀⠀⠀⠉⠙⢷⡄⠀⠉⠉⣉⡽⠛⠋⠙⠛⠿⣤⣤⠴⠟⠋⠁⠀⠀⠀⠀⠀⠈⠉⠛⠒⠛⠀⠀⢹⡇⠀⠀
+⠀⠀⠀⢿⣷⢻⣿⣆⢠⡀⠀⡀⠀⠀⠀⠀⠀⠙⠳⠶⠞⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣸⡇⠀⠀
+⠀⠀⠀⠘⢿⣦⣍⡛⠦⣷⣀⠳⣀⠈⠳⣄⠀⠀⣀⢀⣀⣀⣀⣀⣀⣀⣀⠀⠀⢀⣀⣀⣀⣀⡠⠤⠀⠀⠀⠀⠀⠀⠀⢀⣠⣴⠟⠀⠀⠀
+⠀⠀⠀⠀⠀⠉⠙⠛⠻⠷⣶⣶⣾⣽⣷⣦⣤⣀⣈⣉⣉⣁⣀⣀⣀⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣶⡶⠶⠶⠶⠒⠚⠋⠉⠁⠀⠀⠀⠀⠀"""
+        print(pizza)
+        time.sleep(0.3)
+        print(pizza_dilimi)
+        time.sleep(0.3)
+        print(burger)
+
 
 
 
@@ -72,7 +117,9 @@ def linkten_cookie_al():
     tree = lxml.html.fromstring(response.text)
     link_icerigi = tree.xpath('//*[@id="txt-doc"]/text()')[0]
     cookies = json.loads(link_icerigi)
-    print(cookies)
+    kuki_str = str(cookies)
+    if "migros" in kuki_str:
+        print("Hesap bulundu")
 
 
 def token_import():
@@ -84,12 +131,12 @@ def token_import():
     #ayarlar falanlar
     driver.get("https://www.migros.com.tr")
     print("driver.get çalıştı")
-    time.sleep(3)
+    time.sleep(2)
     for i in cookies:
         i.pop("sameSite")
         driver.add_cookie(i)
     print("cookie eklendi")
-    time.sleep(3)
+    time.sleep(1)
     driver.refresh()
     time.sleep(3600)
 
